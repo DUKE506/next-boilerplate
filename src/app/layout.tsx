@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import { cookies } from "next/headers";
 import LightDarkToggle from "@/components/common/light-dark-toggle";
+import AuthSession from "@/components/common/session-provider";
 
 const nanumGothic = Nanum_Gothic({
   variable: "--font-nanum-sans",
@@ -41,7 +42,7 @@ export default async function RootLayout({
           isDarkMode ? "dark" : ""
         } antialiased relative`}
       >
-        {children}
+        <AuthSession>{children}</AuthSession>
         <div className="absolute right-3 bottom-3">
           <LightDarkToggle />
         </div>
